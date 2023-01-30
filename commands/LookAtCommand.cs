@@ -1,0 +1,47 @@
+﻿using System;
+using MUDProject.core.player;
+using MUDProject.core.world;
+
+namespace MUDProject.commands
+{
+    /// <summary>
+    /// 角色相关指令
+    /// </summary>
+    public class LookAtCommand: ICommand
+    {
+        public string GetName()
+        {
+            return "lookAt";
+        }
+
+        public string Execute(string[] fragments, World world)
+        {
+            Player target;
+            if (fragments.Length != 1)
+                return "lookAt命令应当如此使用: lookAt <self|角色id>";
+            switch (fragments[0])
+            {
+                case "self":
+                    target = world.PlayerManager.GetCurrentPlayer();
+                    break;
+                default:
+                    try
+                    {
+                        target = world.PlayerManager.GetPlayerById(Convert.ToUInt32(fragments[0]));
+                    } catch (Exception)
+                    {
+                        return $"无效的二级指令{fragments[0]}";
+                    }
+                    break;
+            }
+
+            return target.Look();
+        }
+
+        public string Help(bool explain)
+        {
+            if (!explain) return "lookAt: 看向某人";
+            return "详情";
+        }
+    }
+}
