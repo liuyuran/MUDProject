@@ -40,11 +40,12 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="CommandManager.cs" />
-        <Compile Include="commands\HelpCommand.cs" />
         <Compile Include="commands\ICommand.cs" />
+        <Compile Include="commands\StatusCommand.cs" />
         <Compile Include="core\bases\ILookAble.cs" />
         <Compile Include="core\map\terrain\ITerrain.cs" />
         <Compile Include="core\map\UnitMap.cs" />
+        <Compile Include="core\player\Player.cs" />
         <Compile Include="core\player\PlayerManager.cs" />
         <Compile Include="core\world\World.cs" />
         <Compile Include="Program.cs" />

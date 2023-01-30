@@ -1,4 +1,5 @@
 ﻿using System;
+using MUDProject.core.world;
 
 namespace MUDProject
 {
@@ -8,12 +9,14 @@ namespace MUDProject
         
         public static void Main(string[] args)
         {
+            var world = new World();
+            world.ReInit();
             while (true)
             {
                 var command = Console.ReadLine();
                 if (command == null || command.Trim().Length == 0) continue;
                 if (command == "exit") break;
-                Console.WriteLine(CommandManager.Execute(command));
+                Console.WriteLine(CommandManager.Execute(command, world));
             }
         }
     }
