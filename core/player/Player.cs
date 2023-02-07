@@ -1,4 +1,5 @@
 ﻿using MUDProject.core.bases;
+using MUDProject.core.enums;
 
 namespace MUDProject.core.player
 {
@@ -8,18 +9,16 @@ namespace MUDProject.core.player
     public class Player: IStatusAble, ILookAble
     {
         private readonly uint _id;
-        private Name name;
-        private Gender _gender;
+        public Name Name;
+        public Gender Gender;
+        public IRace Race;
+        public readonly RelationshipManager RelationshipManager;
 
         public Player(uint id)
         {
-            this._id = id;
-            _gender = Gender.Male;
-        }
-
-        public new string ToString()
-        {
-            return $"{_id}:{name}";
+            _id = id;
+            Gender = Gender.Male;
+            RelationshipManager = new RelationshipManager(this);
         }
         
         public string Status()
@@ -27,9 +26,9 @@ namespace MUDProject.core.player
             return "角色X";
         }
 
-        public string Look()
+        public string Look(Player from)
         {
-            return "你上下打量了一下对方";
+            return $"你上下打量了一下，这是一{Race.GetDimension()}{Race.GetRaceName(Gender)}。";
         }
     }
 }

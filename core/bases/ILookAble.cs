@@ -1,7 +1,9 @@
-﻿namespace MUDProject.core.bases
+﻿using MUDProject.core.player;
+
+namespace MUDProject.core.bases
 {
     public interface ILookAble
     {
-        string Look();
+        string Look(Player from);
     }
 }

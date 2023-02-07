@@ -1,4 +1,5 @@
-﻿using MUDProject.core.player;
+﻿using MUDProject.core.map;
+using MUDProject.core.player;
 
 namespace MUDProject.core.world
 {
@@ -7,10 +8,15 @@ namespace MUDProject.core.world
     /// </summary>
     public class World
     {
-        public readonly PlayerManager PlayerManager = new PlayerManager();
+        // 没必要用rust式语法找不痛快，静态单例最棒了
+        public static readonly World Instant = new World();
         
+        public readonly PlayerManager PlayerManager = new PlayerManager();
+        public readonly MapManager MapManager;
+
         public World()
         {
+            MapManager = new MapManager(PlayerManager.GetCurrentPlayer());
         }
 
         public void ReInit()

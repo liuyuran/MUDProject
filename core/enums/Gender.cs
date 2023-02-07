@@ -1,5 +1,8 @@
-﻿namespace MUDProject.core.player
+﻿namespace MUDProject.core.enums
 {
+    /// <summary>
+    /// 性别枚举值
+    /// </summary>
     public enum Gender
     {
         Male,      // 雄性

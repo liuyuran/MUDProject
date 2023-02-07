@@ -14,7 +14,7 @@ namespace MUDProject.commands
             return "lookAt";
         }
 
-        public string Execute(string[] fragments, World world)
+        public string Execute(string[] fragments)
         {
             Player target;
             if (fragments.Length != 1)
@@ -22,12 +22,12 @@ namespace MUDProject.commands
             switch (fragments[0])
             {
                 case "self":
-                    target = world.PlayerManager.GetCurrentPlayer();
+                    target = World.Instant.PlayerManager.GetCurrentPlayer();
                     break;
                 default:
                     try
                     {
-                        target = world.PlayerManager.GetPlayerById(Convert.ToUInt32(fragments[0]));
+                        target = World.Instant.PlayerManager.GetPlayerById(Convert.ToUInt32(fragments[0]));
                     } catch (Exception)
                     {
                         return $"无效的二级指令{fragments[0]}";
@@ -35,13 +35,12 @@ namespace MUDProject.commands
                     break;
             }
 
-            return target.Look();
+            return target.Look(World.Instant.PlayerManager.GetCurrentPlayer());
         }
 
         public string Help(bool explain)
         {
-            if (!explain) return "lookAt: 看向某人";
-            return "详情";
+            return $"{GetName()}: 看向某人";
         }
     }
 }

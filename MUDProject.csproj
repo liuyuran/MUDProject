@@ -41,21 +41,31 @@
     <ItemGroup>
         <Compile Include="CommandManager.cs" />
         <Compile Include="commands\ICommand.cs" />
+        <Compile Include="commands\LookAroundCommand.cs" />
         <Compile Include="commands\LookAtCommand.cs" />
+        <Compile Include="core\bases\BaseManager.cs" />
         <Compile Include="core\bases\ILookAble.cs" />
         <Compile Include="core\bases\IStatusAble.cs" />
+        <Compile Include="core\enums\Gender.cs" />
+        <Compile Include="core\enums\Relationship.cs" />
+        <Compile Include="core\map\BlockMap.cs" />
+        <Compile Include="core\map\MapManager.cs" />
         <Compile Include="core\map\terrain\ITerrain.cs" />
         <Compile Include="core\map\UnitMap.cs" />
-        <Compile Include="core\player\Gender.cs" />
+        <Compile Include="core\player\IRace.cs" />
         <Compile Include="core\player\Name.cs" />
         <Compile Include="core\player\Player.cs" />
         <Compile Include="core\player\PlayerManager.cs" />
+        <Compile Include="core\player\race\Human.cs" />
+        <Compile Include="core\player\RelationshipManager.cs" />
         <Compile Include="core\world\World.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="util\Point3.cs" />
     </ItemGroup>
     <ItemGroup>
       <Content Include="readme.md" />
+      <Content Include="text\player.md" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

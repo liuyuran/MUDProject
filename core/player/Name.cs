@@ -2,12 +2,8 @@
 {
     public class Name
     {
-        public string FamilyName;
-        public string PersonName;
-        public string SafeName;
-        public override string ToString()
-        {
-            return $"{FamilyName}{PersonName}";
-        }
+        public string FamilyName; // 姓
+        public string PersonName; // 名
+        public string SafeName;   // 字
     }
 }

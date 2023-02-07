@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using MUDProject.commands;
-using MUDProject.core.world;
 
 namespace MUDProject
 {
@@ -15,6 +14,7 @@ namespace MUDProject
         public CommandManager()
         {
             RegistryCommand(new LookAtCommand());
+            RegistryCommand(new LookAroundCommand());
         }
 
         private void RegistryCommand(ICommand command)
@@ -22,7 +22,7 @@ namespace MUDProject
             _commandList[command.GetName()] = command;
         }
 
-        public string Execute(string command, World world)
+        public string Execute(string command)
         {
             var fragments = command.Split(' ');
             var firstLevel = fragments[0];
@@ -32,7 +32,7 @@ namespace MUDProject
                 fragment.RemoveAt(0);
                 return !_commandList.ContainsKey(firstLevel)
                     ? $"未注册的一级指令: {firstLevel}"
-                    : _commandList[firstLevel].Execute(fragment.ToArray(), world);
+                    : _commandList[firstLevel].Execute(fragment.ToArray());
             }
 
             if (fragments.Length == 2)

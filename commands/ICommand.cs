@@ -8,7 +8,7 @@ namespace MUDProject.commands
     public interface ICommand
     {
         string GetName();
-        string Execute(string[] fragments, World world);
+        string Execute(string[] fragments);
         string Help(bool explain);
     }
 }
