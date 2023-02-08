@@ -40,6 +40,8 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="CommandManager.cs" />
+        <Compile Include="commands\AboutCommand.cs" />
+        <Compile Include="commands\HistoryCommand.cs" />
         <Compile Include="commands\ICommand.cs" />
         <Compile Include="commands\LookAroundCommand.cs" />
         <Compile Include="commands\LookAtCommand.cs" />

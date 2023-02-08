@@ -18,6 +18,7 @@ namespace MUDProject.core.player
         
         public override void Reset()
         {
+            _currentPlayer = 1;
             _playerIdSequence = 1;
             _currentPlayer = GeneratePlayer();
         }

@@ -16,6 +16,7 @@ namespace MUDProject.core.world
 
         public World()
         {
+            ReInit();
             MapManager = new MapManager(PlayerManager.GetCurrentPlayer());
         }
 
